@@ -14,7 +14,9 @@ class CirculoModelo: ContratoCirculo.Modelo {
     }
 
     override fun valida(radio: Float): Boolean {
-        return (radio>0)
+        return radio > 0
+
     }
+
 
 }

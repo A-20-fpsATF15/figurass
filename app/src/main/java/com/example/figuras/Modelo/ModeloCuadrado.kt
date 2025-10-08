@@ -23,6 +23,8 @@ class ModeloCuadrado: CuadradoContrato.Modelo {
     }
 
     override fun verificarCuadrado(lado: Double): Boolean {
-            return lado > 0
+        return lado > 0
+
     }
+
 }

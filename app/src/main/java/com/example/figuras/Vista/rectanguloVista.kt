@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ejercicio_figuras.Contrato.Rectangulo_contract
 
-import com.example.ejercicio_figuras.Presentador.TrianguloPresenter
 import com.example.ejercicio_figuras.Presentador.cls_Rectangulo_presenter
 import com.example.figuras.R
 
@@ -26,11 +25,12 @@ class rectanguloVista : AppCompatActivity(), Rectangulo_contract.rectangulo_vist
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_rectangulo)
         val txtl1: EditText =findViewById<EditText>(R.id.edtL1)
         val txtl2: EditText =findViewById<EditText>(R.id.edtL2)
         val btnArea: Button =findViewById<Button>(R.id.btnArea)
         val btnPerimetro: Button =findViewById<Button>(R.id.btnPerimetro)
+        val btnRegresar: Button =findViewById<Button>(R.id.btnRegresar)
         txtResultado = findViewById(R.id.txvRes)
         //definimos el presentardor
         presentador= cls_Rectangulo_presenter(this)
@@ -40,9 +40,12 @@ class rectanguloVista : AppCompatActivity(), Rectangulo_contract.rectangulo_vist
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        btnRegresar.setOnClickListener{
+            finish()
+        }
         btnPerimetro.setOnClickListener{
-            val l1=txtl1.text.toString().toFloat()
-            val l2=txtl2.text.toString().toFloat()
+            val l1=txtl1.text.toString().toDouble()
+            val l2=txtl2.text.toString().toDouble()
             presentador.calcularPerimetro(l1,l2)
 
         }
@@ -51,8 +54,8 @@ class rectanguloVista : AppCompatActivity(), Rectangulo_contract.rectangulo_vist
 
         //listener del boton para calcular el area llamando a una funcion
         btnArea.setOnClickListener {
-            val l1=txtl1.text.toString().toFloat()
-            val l2=txtl2.text.toString().toFloat()
+            val l1=txtl1.text.toString().toDouble()
+            val l2=txtl2.text.toString().toDouble()
             presentador.calcularArea(l1,l2)
         }
     }

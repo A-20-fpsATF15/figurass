@@ -11,8 +11,6 @@ class cls_Rectangulo_presenter(private val vista: Rectangulo_contract.rectangulo
       if(modelo.verificarRectangulo(base, altura)){
             val area = modelo.calcularArea(base, altura)
             vista.showArea(area)
-      }else{
-          vista.showError()
       }
     }
 
@@ -20,15 +18,7 @@ class cls_Rectangulo_presenter(private val vista: Rectangulo_contract.rectangulo
         if(modelo.verificarRectangulo(base, altura)){
             val perimetro = modelo.calcularPerimetro(base, altura)
             vista.showPerimetro(perimetro)
-        }else{
-            vista.showError()
         }
-
-    }
-
-    override fun verificarRectangulo(base: Double, altura: Double) {
-        val esRectangulo = modelo.verificarRectangulo(base, altura)
-        vista.showRectanguloValido(esRectangulo)
 
     }
 

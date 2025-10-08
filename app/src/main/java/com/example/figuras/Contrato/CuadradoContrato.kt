@@ -5,6 +5,7 @@ interface CuadradoContrato {
         fun calcularArea(lado: Double): Double
         fun calcularPerimetro(lado: Double): Double
         fun verificarCuadrado(lado: Double): Boolean
+
     }
     interface Vista {
         fun showArea(area: Double)
@@ -14,6 +15,7 @@ interface CuadradoContrato {
     interface Presentador {
         fun calcularArea(lado: Double)
         fun calcularPerimetro(lado: Double)
+
     }
 
 }
